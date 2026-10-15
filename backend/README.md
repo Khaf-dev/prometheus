@@ -136,7 +136,7 @@ OLLAMA_EMBED_MODEL=mxbai-embed-large  # 1024 dim, di-pad ke 1536
 
 # ── Database ──────────────────────────────────────────────────────────────────
 # PENTING: pakai 127.0.0.1, BUKAN localhost — fix untuk asyncpg di Windows
-DATABASE_URL=postgresql+asyncpg://prometheus:prometheus@127.0.0.1:5432/prometheus
+DATABASE_URL=postgresql+asyncpg://USER:PASSWORD@127.0.0.1:5432/prometheus
 
 # ── App ───────────────────────────────────────────────────────────────────────
 SECRET_KEY=ganti-ini-dengan-random-string-panjang
@@ -346,10 +346,10 @@ Set-Service -Name "postgresql-x64-17" -StartupType Disabled
 
 ```bash
 # ❌ Salah
-DATABASE_URL=postgresql+asyncpg://prometheus:prometheus@localhost:5432/prometheus
+DATABASE_URL=postgresql+asyncpg://USER:PASSWORD@localhost:5432/prometheus
 
 # ✅ Benar
-DATABASE_URL=postgresql+asyncpg://prometheus:prometheus@127.0.0.1:5432/prometheus
+DATABASE_URL=postgresql+asyncpg://USER:PASSWORD@127.0.0.1:5432/prometheus
 ```
 
 ### 4. Makefile bash syntax tidak jalan di Windows
@@ -383,7 +383,7 @@ File `alembic/env.py` kita sudah handle ini dengan manual parse `.env`.
 Atau set manual sebelum jalankan alembic:
 
 ```powershell
-$env:DATABASE_URL = "postgresql+asyncpg://prometheus:prometheus@127.0.0.1:5432/prometheus"
+$env:DATABASE_URL = "postgresql+asyncpg://USER:PASSWORD@127.0.0.1:5432/prometheus"
 alembic upgrade head
 ```
 
@@ -435,7 +435,7 @@ curl http://localhost:8000/health
 Database sudah punya key. Reset kalau key hilang:
 
 ```powershell
-docker compose exec postgres psql -U prometheus -d prometheus -c "TRUNCATE api_keys RESTART IDENTITY CASCADE;"
+docker compose exec postgres psql -U nama user -d prometheus -c "TRUNCATE api_keys RESTART IDENTITY CASCADE;"
 ```
 
 ---
