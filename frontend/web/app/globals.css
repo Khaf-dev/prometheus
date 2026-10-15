@@ -1,0 +1,51 @@
+/* Semua @import wajib di paling atas — termasuk Tailwind v4 */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400&display=swap');
+@import "tailwindcss";
+
+/* Token tema — di v4 ditulis di CSS, bukan di tailwind.config */
+@theme {
+  --color-void:   #0B0E18;
+  --color-deep:   #12162A;
+  --color-cream:  #F2EDE3;
+  --color-line:   #2C3654;
+  --color-text:   #E4E9F7;
+  --color-dim:    #5A6484;
+  --color-faint:  #232B45;
+  --color-flare:  #7FC5E8;
+  --color-violet: #9B87E0;
+  --color-gold:   #E0B888;
+
+  --font-display: 'Cormorant Garamond', serif;
+  --font-sans:    Inter, system-ui, sans-serif;
+  --font-mono:    'JetBrains Mono', monospace;
+}
+
+html, body {
+  background: var(--color-void);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  overscroll-behavior: none;
+}
+
+/* ── Gerak ────────────────────────────────────────────────────────────────── */
+@keyframes trace  { to { stroke-dashoffset: 0 } }
+@keyframes ignite { from { opacity: 0; transform: scale(.3) } to { opacity: 1; transform: scale(1) } }
+@keyframes appear { from { opacity: 0 } to { opacity: 1 } }
+@keyframes emerge { from { opacity: 0; transform: scale(1.1) } to { opacity: 1; transform: scale(1) } }
+@keyframes sweep  { 0%, 100% { width: 14px } 50% { width: 44px } }
+@keyframes blink  { 0%, 100% { opacity: 1 } 50% { opacity: 0 } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+/* ── Bilah gulir ──────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 8px; height: 8px }
+::-webkit-scrollbar-track { background: transparent }
+::-webkit-scrollbar-thumb { background: var(--color-line); border-radius: 99px }
+::-webkit-scrollbar-thumb:hover { background: var(--color-dim) }
+
+::selection { background: rgba(224, 184, 136, .28) }

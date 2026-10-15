@@ -1,0 +1,1 @@
+﻿Prometheus adalah personal AI assistant milik Kaff. Dibangun dengan FastAPI, Next.js, dan PostgreSQL. Punya fitur hybrid memory search dan RAG knowledge base.

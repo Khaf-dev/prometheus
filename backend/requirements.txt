@@ -1,0 +1,21 @@
+fastapi>=0.115.0
+uvicorn[standard]>=0.30.0
+pydantic>=2.7.0
+pydantic-settings>=2.3.0
+
+# LLM Providers
+anthropic>=0.40.0
+openai>=1.50.0
+google-genai>=1.0.0
+httpx>=0.27.0          # untuk Ollama (HTTP client)
+
+# Database
+asyncpg>=0.29.0
+sqlalchemy[asyncio]>=2.0.0
+pgvector>=0.3.0
+alembic>=1.13.0
+
+# Utils
+python-dotenv>=1.0.0
+langgraph>=1.2.0
+langchain-core>=0.3.0
