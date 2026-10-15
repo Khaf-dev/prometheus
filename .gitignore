@@ -38,7 +38,8 @@ yarn-error.log*
 !.env.example
 !.env.*.example
 .env
-.venv*, venv/
+.venv*
+venv/
 backend/.venv_wsl/
 
 # vercel
